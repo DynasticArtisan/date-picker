@@ -1,0 +1,125 @@
+*, *::after, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #020202;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  text-align: center;
+}
+button {
+  margin-top: 40px;
+}
+.calendar {
+  position: relative;
+}
+.calendar__output {
+  position: relative;
+  width: 320px;
+  height: 50px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: white;
+  z-index: 10;
+}
+.calendar__wrapper {
+  position: absolute;
+  padding: 0 20px;
+  width: 320px;
+  top: 20px;
+  background-color: white;
+  z-index: 1;
+  border-radius: 0 0 10px 10px;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.calendar__wrapper.--open {
+  max-height: 356px;
+
+}
+.calendar__monthes {
+  margin-top: 38px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.calendar__currentMonth {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+}
+.calendar__days {
+  margin-top: 20px;
+  padding-bottom: 13px;
+  color: gray;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid gray;
+}
+.calendar__day {
+  text-align: center;
+  font-size: 12px;
+}
+.calendar__dates {
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding-bottom: 12px;
+  border-bottom: 1px solid gray;
+}
+.calendar__date {
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  line-height: 18px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.calendar__date:hover {
+  background-color: black;
+  color: white;
+}
+.calendar__date.selected {
+  background-color: blue;
+  color: white;
+}
+.calendar__date.--hovered {
+  background-color: rgb(52, 52, 214);
+  color: white;
+}
+.calendar__date.--in-range {
+  background-color: rgb(50, 50, 255);
+  border-radius: 0px;
+  color: white;
+}
+.calendar__range-mode {
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  font-size: 14px;
+  line-height: 20px;
+  color: blue;
+}
+.calendar__range-mode.--selected {
+  color: red;
+}
