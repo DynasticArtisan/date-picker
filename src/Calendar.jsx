@@ -100,10 +100,10 @@ function Calendar(options) {
           {state.calendarDays.map((day, i) => (
             <div
               className={`calendar__date ${
-                helpers.isSelected(day) ? "selected" : ""
+                helpers.isSelected(day) ? "calendar__date--selected" : ""
               } 
-              ${helpers.isInRange(day) ? "--in-range" : ""} 
-              ${helpers.isInHoverRange(day) ? "--hovered" : ""}`}
+              ${helpers.isInRange(day) ? "calendar__date--in-range" : ""} 
+              ${helpers.isInHoverRange(day) ? "calendar__date--in-hover" : ""}`}
               key={i}
               onClick={() => actions.selectDay(day)}
               onMouseEnter={() => actions.hoverOnDate(day)}

@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import Component from './Calendar';
-
-
-
 
 class Calendar {
   constructor(node, { date, dateFrom, dateTo, locale, format, rangeMode }={}) {
@@ -29,5 +25,5 @@ class Calendar {
   }
 
 }
-window.cal = new Calendar(document.querySelector('.date-field'))
+
 window.Calendar = Calendar
