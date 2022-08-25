@@ -24,10 +24,13 @@ export const useCalendar = (options) => {
         options.setDateTo(date)
         return date
     }, new Date(options.dateTo))
-    const [ rangeMode, toggleRangeMode ] = useReducer(prev => {
+    const clearFields = useCallback(()=>{
         setDate(null)
         setDateFrom(null)
         setDateTo(null)
+    },[])
+    const [ rangeMode, toggleRangeMode ] = useReducer(prev => {
+        clearFields()
         options.setRangeMode(!prev)
         return !prev
     }, options.rangeMode)
@@ -108,7 +111,7 @@ export const useCalendar = (options) => {
             weekDaysNames, calendarDays, selectedMonth, date, dateFrom, dateTo, rangeMode
         },
         actions: {
-            nextMonth, prevMonth, toggleRangeMode, selectDay, hoverOnDate
+            nextMonth, prevMonth, toggleRangeMode, selectDay, hoverOnDate, clearFields
         },
         helpers: {
             isSelected, isInRange, isInHoverRange

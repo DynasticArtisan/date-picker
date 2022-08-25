@@ -1,4 +1,6 @@
-*, *::after, *::after {
+*,
+*::after,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -49,8 +51,7 @@ button {
   transition: 0.5s;
 }
 .calendar__wrapper.--open {
-  max-height: 356px;
-
+  max-height: 400px;
 }
 .calendar__monthes {
   margin-top: 38px;
@@ -92,7 +93,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .calendar__date:hover {
   background-color: black;
