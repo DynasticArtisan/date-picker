@@ -47,7 +47,7 @@ export const useCalendar = (options) => {
         const nextMonthDays = nextDaysCount ? createMonth(new Date(selectedMonth.monthIndex < 11 ? selectedMonth.year : selectedMonth.year + 1, selectedMonth.monthIndex < 11 ? selectedMonth.monthIndex + 1 : 0), options.locale).createMonthDays().slice(0, nextDaysCount) : []
 
 
-        return [ ...prevMonthDays, ...selectedMonthDays, ...nextMonthDays ]
+        return [ ...prevMonthDays.map(d => ({ ...d, notCurMonth: true})), ...selectedMonthDays, ...nextMonthDays.map(d => ({ ...d, notCurMonth: true})) ]
     },[selectedMonth])
 
     const prevMonth = useCallback(()=>{

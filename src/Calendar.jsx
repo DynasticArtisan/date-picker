@@ -31,7 +31,7 @@ function Calendar(options) {
   }, []);
 
   return (
-    <div className="calendar" ref={cal}>
+    <div className={`calendar ${open ? "calendar--open" : ""}`} ref={cal}>
       <div className="calendar__output" onClick={openCalendar}>
         {!state.rangeMode &&
           state.date &&
@@ -44,7 +44,7 @@ function Calendar(options) {
           state.dateTo &&
           state.dateTo.date?.toLocaleString(options.locale, options.format)}
       </div>
-      <div className={`calendar__wrapper ${open ? "--open" : ""}`}>
+      <div className={`calendar__wrapper`}>
         <div className="calendar__monthes">
           <button
             className="calendar__prevMonth"
@@ -100,8 +100,8 @@ function Calendar(options) {
           {state.calendarDays.map((day, i) => (
             <div
               className={`calendar__date ${
-                helpers.isSelected(day) ? "calendar__date--selected" : ""
-              } 
+                day.notCurMonth ? "calendar__date--not-current-month" : ""
+              } ${helpers.isSelected(day) ? "calendar__date--selected" : ""} 
               ${helpers.isInRange(day) ? "calendar__date--in-range" : ""} 
               ${helpers.isInHoverRange(day) ? "calendar__date--in-hover" : ""}`}
               key={i}
@@ -114,7 +114,7 @@ function Calendar(options) {
         </div>
         <div
           className={`calendar__range-mode ${
-            state.rangeMode ? "--selected" : ""
+            state.rangeMode ? "calendar__range-mode--selected" : ""
           }`}
           onClick={actions.toggleRangeMode}
         >
